@@ -1,0 +1,264 @@
+:root{
+	--background: #fff;
+	--firstColorHat: #389bd2;
+	--secondColorHat: #1b7fc0;
+	--firstColorFace: #ffaa66;
+	--secondColorFace: #b7763a;
+	--colorEyes: #130908;
+	--colorMouth: #9b3b21;
+	--colorPoint: #244d8e;
+	--colorShadowText: #54a5;
+	--colorName: #389bd2;
+	--changeColorName: #a3f;
+}
+
+*{
+	background-color: var(--background);
+	margin: 0;
+	padding: 0;
+}
+html{
+	font-size: 16px;
+}
+.canvas{
+	height: 20rem;
+	margin: 1.5rem;
+	position: relative;
+	width: 20rem;
+	transform: scale(1.4);
+	margin: 5rem auto 0 auto;
+}
+@media(max-width: 700px){
+	.canvas{
+	height: 20rem;
+	margin: 1.5rem;
+	position: relative;
+	width: 20rem;
+	transform: scale(0.7);
+	margin: 5rem auto 0 auto;
+}
+}
+.head{
+	background: linear-gradient(180deg, var(--secondColorFace) 0%, var(--firstColorFace) 75%, var(--secondColorFace) 100%);
+	clip-path: ellipse(43% 48% at 50% 50%);  
+	height: 20rem;
+	position: relative;
+	width: 20rem;
+	z-index: 10;
+}
+.face{
+	background: linear-gradient(360deg, var(--secondColorFace) 0%, var(--firstColorFace) 40%);
+	border-radius: 100%;
+	box-shadow: inset 0px 12px 20px #0005;
+	height: 13rem;
+	left: 1rem;
+	position: absolute;
+	top: 8rem;
+	width: 18rem;
+	z-index: 50;
+}
+.hat{
+	background: linear-gradient(90deg, var(--secondColorHat) 0%, var(--firstColorHat) 50%, var(--secondColorHat) 100%);
+	clip-path: polygon(100% 0, 100% 100%, 100% 63%, 86% 51%, 56% 41%, 43% 41%, 16% 50%, 0 63%, 0 100%, 0 0);
+	height: 22rem;
+	width: 20rem;
+	z-index: 10;
+}
+.visor{
+	background: linear-gradient(90deg, var(--secondColorHat) 0%, var(--firstColorHat) 40%, var(--secondColorHat) 100%);
+	border-radius: 100%;
+	box-shadow: 0px -5px 1px #0001;
+	height: 13rem;
+	left: 1rem;
+	position: absolute;
+	top: 6rem;
+	width: 18rem;
+	z-index: 20;	
+}
+.eyeR, .eyeL{
+	animation-name: eyesAnimation;
+	animation-delay: 2s;
+  	animation-direction: alternate-reverse;
+	animation-duration: 2s;
+  	animation-iteration-count: infinite;
+  	animation-timing-function: ease-out;
+	background-color: var(--colorEyes);
+	clip-path: ellipse(17% 49% at 50% 50%);
+	height: 3.5rem;
+	position: absolute;
+	right: 12rem;
+	top: 11rem;
+	width: 3.8rem;
+	z-index: 50;
+}
+.eyeL{
+	background-color: var(--colorEyes);
+	bottom: 11rem;
+	clip-path: ellipse(17% 49% at 50% 50%);
+	height: 3.5rem;
+	left: 12rem;
+	position: absolute;
+	width: 3.8rem;
+}
+.nose{
+	background: radial-gradient(circle,var(--firstColorFace) 50%, var(--secondColorFace) 90%);
+	clip-path: circle(50% at 50% 50%);
+	height: 1.8rem;
+	position: absolute;
+	right: 9.1rem;
+	top: 14rem;
+	width: 1.8rem;
+	z-index: 50;
+}
+.mouth{
+	background-color: var(--colorMouth);
+	bottom: 2.5rem;
+	clip-path: polygon(50% 100%, 80% 89%, 99% 69%, 96% 68%, 77% 87%, 50% 97%, 22% 86%, 0% 70%, 0 73%, 21% 89%);
+	height: 1.5rem;
+	position: absolute;
+	right: 8.8rem;
+	width: 2.5rem;
+	z-index: 50;
+}
+.point{
+	background-color: var(--colorPoint);
+	clip-path: ellipse(20% 3% at 50% 50%);
+	height: 11rem;
+	position: absolute;
+	right: 6rem;
+	top: -5rem;
+	width: 8rem;
+	z-index: 0;
+}
+.sideburns{
+	background: radial-gradient(circle,var(--firstColorHat) 10%, var(--secondColorHat) 50%);
+	clip-path: ellipse(22% 49% at 50% 50%);
+	height: 7rem;
+	position: absolute;
+	top: 8rem;
+	width: 7rem;
+}
+.sL{
+	left: -2rem;
+	transform: rotate(45deg);
+	z-index: 1;
+}
+.sR{
+	right: -2rem;
+	transform: rotate(-45deg);
+	z-index: 1;
+}
+.name{
+	color: var(--secondColorHat);
+	font-family: 'Cute Font', cursive;
+	font-size: 6rem;
+	text-align: center;
+	text-shadow: 5px 5px var(--colorShadowText);
+	-webkit-user-select: none;/* Chrome  y Safari */ 
+     -moz-user-select: none;/* Firefox */
+      -ms-user-select: none;/* IE 10+ */ 
+          user-select: none;
+}
+.char{
+	display: inline-block;
+	font-size: 6rem;
+}
+.p{
+	animation-name: pAnimation;
+  	animation-duration: 6s;
+  	animation-iteration-count: infinite;
+  	animation-timing-function: linear;
+}
+.o1{
+  	animation-duration: 6s;
+  	animation-iteration-count: infinite;
+	animation-name: o1Animation;
+  	animation-timing-function: linear;
+  	animation-delay: 1s;
+}
+.c{
+	animation-name: cAnimation;
+  	animation-duration: 6s;
+  	animation-iteration-count: infinite;
+  	animation-timing-function: linear;
+  	animation-delay: 2s;
+}
+.o2{
+	animation-name: o2Animation;
+  	animation-duration: 6s;
+  	animation-iteration-count: infinite;
+  	animation-timing-function: linear;
+  	animation-delay: 3s;
+}
+.y{
+	animation-name: yAnimation;
+  	animation-duration: 6s;
+  	animation-iteration-count: infinite;
+  	animation-timing-function: linear;
+  	animation-delay: 4s;
+}
+.o3{
+	animation-name: o3Animation;
+  	animation-duration: 6s;
+  	animation-iteration-count: infinite;
+  	animation-timing-function: linear;
+  	animation-delay: 5s;
+}
+
+/*name animation*/
+
+@keyframes pAnimation{
+	0%{
+		color: var(--changeColorName);
+	}
+	50%{
+		color: var(--colorName);
+	}
+}
+@keyframes o1Animation{
+	0%{
+		color: var(--changeColorName);
+	}
+	50%{
+		color: var(--colorName);
+	}
+}
+@keyframes cAnimation{
+	0%{
+		color: var(--changeColorName);
+	}
+	50%{
+		color: var(--colorName);
+	}
+
+}
+@keyframes o2Animation{
+	0%{
+		color: var(--changeColorName);
+	}
+	50%{
+		color: var(--colorName);
+	}
+}
+@keyframes yAnimation{
+	0%{
+		color: var(--changeColorName);
+	}
+	50%{
+		color: var(--colorName);
+	}
+}
+@keyframes o3Animation{
+	0%{
+		color: var(--changeColorName);
+	}
+	50%{
+		color: var(--colorName);
+	}
+}
+
+@keyframes eyesAnimation{
+	0%{
+		transform: matrix(1, 0, 0, 0.01, 2, 2);
+	}
+}
